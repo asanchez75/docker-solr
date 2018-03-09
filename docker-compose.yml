@@ -1,0 +1,11 @@
+version: '3'
+services:
+    solr:
+        image: solr:5
+        volumes:
+            - "./apachesolr/solr-conf/solr-5.x:/myconfig"
+        ports:
+            - "8983:8983"
+        command: /bin/bash -c "solr-create -c mycore -d /myconfig"
+        restart: always
+
